@@ -10,32 +10,66 @@ body {
     overflow: hidden;
 }
 
+.card-container {
+    perspective: 1000px;
+}
+
 .card {
     width: 300px;
     height: 200px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card-front {
+    z-index: 2;
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
 }
 
-.message {
-    display: none;
-    text-align: center;
+.card-back {
+    transform: rotateY(180deg);
 }
 
-.message h1 {
+.card.open .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card.open .card-back {
+    transform: rotateY(0deg);
+}
+
+h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 2em;
-    margin: 0;
+    animation: rainbowText 5s infinite;
 }
 
-.message p {
+p {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 1.2em;
+}
+
+@keyframes rainbowText {
+    0% { color: #ff9a9e; }
+    20% { color: #fad0c4; }
+    40% { color: #a18cd1; }
+    60% { color: #fbc2eb; }
+    80% { color: #ff9a9e; }
+    100% { color: #fad0c4; }
 }

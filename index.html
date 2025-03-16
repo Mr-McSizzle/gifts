@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Gift Card</title>
+    <title>Interactive Gift Card</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="card" id="giftCard">
-        <div class="message" id="message">
-            <h1>Surprise!</h1>
-            <p>Here's a special message just for you!</p>
+    <div class="card-container" id="cardContainer">
+        <div class="card" id="giftCard">
+            <div class="card-front">
+                <h1>Click to Open</h1>
+            </div>
+            <div class="card-back" id="cardBack">
+                <h1>Surprise!</h1>
+                <p>Here's a special message just for you!</p>
+            </div>
         </div>
     </div>
     <audio id="backgroundMusic" autoplay loop>
