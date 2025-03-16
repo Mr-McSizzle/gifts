@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
+    <div class="card-container">
+        <div class="card" id="giftCard">
+            <div class="card-front">
+                <h1>Click to Open</h1>
+            </div>
+            <div class="card-back">
+                <h1>Surprise!</h1>
+                <p>Here's a special message just for you!</p>
+                <button id="closeButton">Close card</button>
+            </div>
+        </div>
+    </div>
     <audio id="backgroundMusic" autoplay loop>
         <source src="music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
