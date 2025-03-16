@@ -6,6 +6,7 @@ body {
     align-items: center;
     background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
     overflow: hidden;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .card-container {
@@ -13,8 +14,8 @@ body {
 }
 
 .card {
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 600px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 1s;
@@ -45,6 +46,7 @@ body {
     transform: rotateY(180deg);
     background: white;
     color: #ff9a9e;
+    padding: 20px;
 }
 
 .card.open .card-front {
@@ -56,12 +58,11 @@ body {
 }
 
 h1 {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 2em;
+    animation: colorChange 3s infinite;
 }
 
 p {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 1.2em;
 }
 
@@ -79,4 +80,60 @@ button {
 
 button:hover {
     background-color: #ff6e7f;
+}
+
+@keyframes colorChange {
+    0% { color: #ff9a9e; }
+    50% { color: #fad0c4; }
+    100% { color: #ff9a9e; }
+}
+
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s infinite ease-in-out;
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(-100px) rotate(45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(45deg);
+    }
 }
